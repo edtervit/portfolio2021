@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_project_screenshots",
+  "info": {
+    "name": "screenshots",
+    "icon": "images"
+  },
+  "options": {},
+  "attributes": {
+    "screenshot": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "screenshotText": {
+      "type": "string"
+    }
+  }
+}

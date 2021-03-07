@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "landing_sections",
+  "info": {
+    "name": "LandingSection",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "mainTitle": {
+      "type": "string"
+    },
+    "subTitle": {
+      "type": "string"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": true,
+      "component": "landing.button"
+    }
+  }
+}

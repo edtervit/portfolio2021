@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_landing_buttons",
+  "info": {
+    "name": "button",
+    "icon": "mouse",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "buttonText": {
+      "type": "string"
+    },
+    "ButtonLink": {
+      "type": "string"
+    },
+    "newTab": {
+      "type": "boolean"
+    }
+  }
+}

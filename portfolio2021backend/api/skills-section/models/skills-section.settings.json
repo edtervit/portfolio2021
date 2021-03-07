@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "skills_sections",
+  "info": {
+    "name": "skillsSection"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "skillSection": {
+      "type": "component",
+      "repeatable": true,
+      "component": "skills.skill-section"
+    }
+  }
+}

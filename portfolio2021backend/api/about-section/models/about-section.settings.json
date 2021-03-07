@@ -1,0 +1,52 @@
+{
+  "kind": "singleType",
+  "collectionName": "about_sections",
+  "info": {
+    "name": "aboutSection",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "socialLink": {
+      "type": "component",
+      "repeatable": true,
+      "component": "social-link.social-link"
+    },
+    "location": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "bio1": {
+      "type": "text"
+    },
+    "bio2": {
+      "type": "text"
+    },
+    "bio3": {
+      "type": "string"
+    },
+    "bio4": {
+      "type": "string"
+    },
+    "bio5": {
+      "type": "string"
+    },
+    "photo": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

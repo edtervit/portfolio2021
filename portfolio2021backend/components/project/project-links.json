@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_project_project_links",
+  "info": {
+    "name": "projectLinks",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "link": {
+      "type": "string"
+    },
+    "linkText": {
+      "type": "string"
+    },
+    "fontAwesomeClass": {
+      "type": "string"
+    }
+  }
+}

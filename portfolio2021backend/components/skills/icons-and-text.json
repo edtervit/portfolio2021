@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_skills_icons_and_texts",
+  "info": {
+    "name": "iconsAndText",
+    "icon": "icons"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "fontAwesomeClassForIcon": {
+      "type": "string"
+    }
+  }
+}

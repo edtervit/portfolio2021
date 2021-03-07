@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_skills_skill_sections",
+  "info": {
+    "name": "skillSection",
+    "icon": "skiing"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "iconsAndText": {
+      "type": "component",
+      "repeatable": true,
+      "component": "skills.icons-and-text"
+    }
+  }
+}

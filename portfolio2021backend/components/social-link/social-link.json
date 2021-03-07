@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_social_link_social_links",
+  "info": {
+    "name": "socialLink",
+    "icon": "crow"
+  },
+  "options": {},
+  "attributes": {
+    "fontAwesomeClass": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}

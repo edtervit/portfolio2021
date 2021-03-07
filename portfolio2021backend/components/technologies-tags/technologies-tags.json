@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_technologies_tags_technologies_tags",
+  "info": {
+    "name": "technologiesTags",
+    "icon": "mouse-pointer"
+  },
+  "options": {},
+  "attributes": {
+    "aTag": {
+      "type": "string"
+    }
+  }
+}
