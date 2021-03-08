@@ -1,65 +1,64 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import dynamic from "next/dynamic";
 
-export default function Home() {
+//import the sections after their data has loaded with get static props
+const LandingSection = dynamic(() => import("../components/LandingSection"));
+const AboutSection = dynamic(() => import("../components/AboutSection"));
+const ProjectsSection = dynamic(() => import("../components/ProjectsSection"));
+const SkillsSection = dynamic(() => import("../components/SkillsSection"));
+
+export default function Home({
+  projectsData,
+  aboutSectionData,
+  skillsSectionData,
+  landingSectionData,
+}) {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
-        <title>Create Next App</title>
+        <title>Ed Tervit - Web Developer</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+      <main>
+        <LandingSection data={landingSectionData} />
+        <AboutSection data={aboutSectionData} />
+        <ProjectsSection data={projectsData} />
+        <SkillsSection data={skillsSectionData} />
       </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
+      <footer>
+        <p className="">
+          Site made with React, Next.js, Strapi, Tailwind and ♥
+        </p>
       </footer>
     </div>
-  )
+  );
 }
+
+export const getStaticProps = async () => {
+  const strapiUrl = process.env.STRAPI_URL;
+
+  //fetch all the data from my strapi end points
+
+  const projects = await fetch(`${strapiUrl}/projects`);
+  const projectsData = await projects.json();
+
+  const aboutSection = await fetch(`${strapiUrl}/about-section`);
+  const aboutSectionData = await aboutSection.json();
+
+  const skillsSection = await fetch(`${strapiUrl}/skills-section`);
+  const skillsSectionData = await skillsSection.json();
+
+  const landingSection = await fetch(`${strapiUrl}/landing-section`);
+  const landingSectionData = await landingSection.json();
+
+  return {
+    props: {
+      projectsData: projectsData,
+      aboutSectionData: aboutSectionData,
+      skillsSectionData: skillsSectionData,
+      landingSectionData: landingSectionData,
+    },
+  };
+};
