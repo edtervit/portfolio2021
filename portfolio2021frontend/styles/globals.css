@@ -8,3 +8,7 @@
     @apply paste the tailwind classes here
   }
 } */
+
+.animation-delay1{
+  animation-delay: 0.3s;
+}
