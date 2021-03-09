@@ -11,9 +11,9 @@ function LandingSection({ data }) {
       <h2>{d.subTitle}</h2>
       {d &&
         d.button.map((button) => (
-          <>
+          <div key={button.id}>
             <a href={button.ButtonLink}>{button.buttonText}</a>
-          </>
+          </div>
         ))}
     </div>
   );
