@@ -19,15 +19,15 @@ module.exports = {
         bouncy: {
           "0%": { top: "0em" },
           "40%": { top: "0em" },
-          "43%": { top: "-0.9em" },
+          "43%": { top: "-0.6em" },
           "46%": { top: "0em" },
-          "48%": { top: "-0.4em" },
+          "48%": { top: "-0.2em" },
           "50%": { top: "0em" },
           "100%": { top: "0em" },
         },
       },
       animation: {
-        bouncy: "bouncy 5s infinite linear",
+        bouncy: "bouncy 10s infinite linear",
       },
     },
   },
