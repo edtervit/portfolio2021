@@ -29,7 +29,7 @@ function LandingSection({ data }) {
 
   return (
     <div
-      className="mx-auto text-center h-screen bg-yellow flex flex-col justify-center items-center"
+      className="mx-auto text-center h-screen bg-yellow flex flex-col justify-center items-center relative"
       ref={myRef}
     >
       <div className="bg-white bg-opacity-75 py-4 w-11/12  md:w-auto md:px-20  space-y-3">
@@ -50,6 +50,7 @@ function LandingSection({ data }) {
             </div>
           ))}
       </div>
+      <i class="fas fa-chevron-down text-2xl  text-black animate-bounce absolute bottom-0"></i>
     </div>
   );
 }
