@@ -50,7 +50,10 @@ function LandingSection({ data }) {
             </div>
           ))}
       </div>
-      <i class="fas fa-chevron-down text-2xl  text-black animate-bounce absolute bottom-0"></i>
+      <i
+        aria-hidden
+        className="fas fa-chevron-down text-2xl  text-black animate-bounce absolute bottom-0"
+      ></i>
     </div>
   );
 }

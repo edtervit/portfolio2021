@@ -26,14 +26,15 @@ function AboutSection({ data }) {
             {bioArray && (
               <>
                 {bioArray.map((bioButton, index) => (
-                  <>
+                  <div key={index}>
                     <i
+                      aria-hidden
                       className={`far fa-circle text-2xl m-1 cursor-pointer  ${
                         bio === bioArray[index] ? "text-white" : "text-black"
                       } `}
                       onClick={() => setBio(bioArray[index])}
                     ></i>
-                  </>
+                  </div>
                 ))}
               </>
             )}
@@ -44,12 +45,18 @@ function AboutSection({ data }) {
           <div className="flex flex-wrap justify-center">
             {data && data.socialLink && (
               <>
-                {data.socialLink.map((link) => (
-                  <>
-                    <a href={link.link} target="_blank" className="mx-5">
-                      <i className={link.fontAwesomeClass + " text-4xl"}></i>
-                    </a>
-                  </>
+                {data.socialLink.map((link, index) => (
+                  <a
+                    key={index}
+                    href={link.link}
+                    target="_blank"
+                    className="mx-5"
+                  >
+                    <i
+                      aria-hidden
+                      className={link.fontAwesomeClass + " text-4xl"}
+                    ></i>
+                  </a>
                 ))}
               </>
             )}
