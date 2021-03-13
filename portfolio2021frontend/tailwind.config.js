@@ -9,7 +9,10 @@ module.exports = {
           dark: "#3590F3",
         },
         yellow: "#fffaee",
-        orange: "#F66E41",
+        orange: {
+          DEFAULT: "#F66E41",
+          light: "#FFB82F",
+        },
         gray: "#313638",
       },
       fontFamily: {
@@ -31,6 +34,9 @@ module.exports = {
       },
       boxShadow: {
         about: "-20px -20px 0px 0px rgba(0,0,0,1)",
+      },
+      rotate: {
+        360: "360deg",
       },
     },
   },
