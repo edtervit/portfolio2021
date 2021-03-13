@@ -2,7 +2,8 @@
   "collectionName": "components_skills_icons_and_texts",
   "info": {
     "name": "iconsAndText",
-    "icon": "icons"
+    "icon": "icons",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -11,6 +12,10 @@
     },
     "fontAwesomeClassForIcon": {
       "type": "string"
+    },
+    "standout": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

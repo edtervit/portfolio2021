@@ -1,8 +1,8 @@
 {
   "kind": "singleType",
-  "collectionName": "skills_sections",
+  "collectionName": "footers",
   "info": {
-    "name": "skillsSection",
+    "name": "footer",
     "description": ""
   },
   "options": {
@@ -11,10 +11,11 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "skillSection": {
-      "type": "component",
-      "repeatable": true,
-      "component": "skills.skill-section"
+    "email": {
+      "type": "email"
+    },
+    "footerText": {
+      "type": "richtext"
     }
   }
 }

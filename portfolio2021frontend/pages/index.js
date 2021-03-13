@@ -6,12 +6,14 @@ const LandingSection = dynamic(() => import("../components/LandingSection"));
 const AboutSection = dynamic(() => import("../components/AboutSection"));
 const ProjectsSection = dynamic(() => import("../components/ProjectsSection"));
 const SkillsSection = dynamic(() => import("../components/SkillsSection"));
+const FooterSection = dynamic(() => import("../components/FooterSection"));
 
 export default function Home({
   projectsData,
   aboutSectionData,
   skillsSectionData,
   landingSectionData,
+  footerSectionData,
 }) {
   return (
     <div>
@@ -24,10 +26,7 @@ export default function Home({
           rel="stylesheet"
         />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
-        <script
-          src="https://kit.fontawesome.com/cdb215410e.js"
-          crossorigin="anonymous"
-        ></script>
+        <script src="https://kit.fontawesome.com/cdb215410e.js"></script>
       </Head>
 
       <main>
@@ -35,6 +34,7 @@ export default function Home({
         <AboutSection data={aboutSectionData} />
         <ProjectsSection data={projectsData} />
         <SkillsSection data={skillsSectionData} />
+        <FooterSection data={footerSectionData} />
       </main>
 
       <footer>
@@ -63,12 +63,16 @@ export const getStaticProps = async () => {
   const landingSection = await fetch(`${strapiUrl}/landing-section`);
   const landingSectionData = await landingSection.json();
 
+  const footerSection = await fetch(`${strapiUrl}/footer`);
+  const footerSectionData = await footerSection.json();
+
   return {
     props: {
       projectsData: projectsData,
       aboutSectionData: aboutSectionData,
       skillsSectionData: skillsSectionData,
       landingSectionData: landingSectionData,
+      footerSectionData: footerSectionData,
     },
   };
 };
