@@ -34,14 +34,13 @@ module.exports = {
       },
       boxShadow: {
         about: "-20px -20px 0px 0px rgba(0,0,0,1)",
+        project: "-15px -15px 0px 0px rgba(255,255,255,0.25)",
       },
       rotate: {
         360: "360deg",
       },
     },
   },
-  variants: {
-    extend: {},
-  },
-  plugins: [],
+  variants: ["responsive", "important"],
+  plugins: [require("@neojp/tailwindcss-important-variant")],
 };

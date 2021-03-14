@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 
 function AboutSection({ data }) {
-  console.log("about data:");
-  console.log(data);
-
   const incorrectOrderBioArray = [
     data.bio1,
     data.bio2,

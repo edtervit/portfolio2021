@@ -26,7 +26,10 @@ export default function Home({
           rel="stylesheet"
         />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
-        <script src="https://kit.fontawesome.com/cdb215410e.js"></script>
+        <script
+          crossOrigin="anonymous"
+          src="https://kit.fontawesome.com/cdb215410e.js"
+        ></script>
       </Head>
 
       <main>

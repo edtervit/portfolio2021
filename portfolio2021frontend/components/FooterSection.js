@@ -2,8 +2,6 @@ import React from "react";
 import marked from "marked";
 
 function FooterSection({ data }) {
-  console.log("Footer data:");
-  console.log(data);
   const year = new Date().getFullYear();
 
   const markdown = marked(data.footerText);

@@ -1,9 +1,6 @@
 import React from "react";
 
 function SkillsSection({ data }) {
-  console.log("Skills data:");
-  console.log(data);
-
   return (
     <div className="bg-gradient-to-bl from-orange to-orange-light">
       <div className=" cont  text-white ">
