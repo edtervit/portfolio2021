@@ -34,13 +34,10 @@ export default function Home({
         <AboutSection data={aboutSectionData} />
         <ProjectsSection data={projectsData} />
         <SkillsSection data={skillsSectionData} />
-        <FooterSection data={footerSectionData} />
       </main>
 
       <footer>
-        <p className="">
-          Site made with React, Next.js, Strapi, Tailwind and ♥
-        </p>
+        <FooterSection data={footerSectionData} />
       </footer>
     </div>
   );

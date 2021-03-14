@@ -50,6 +50,7 @@ function LandingSection({ data }) {
             </div>
           ))}
       </div>
+      <p className="absolute bottom-10">scroll down</p>
       <i
         aria-hidden
         className="fas fa-chevron-down text-2xl  text-black animate-bounce absolute bottom-0"

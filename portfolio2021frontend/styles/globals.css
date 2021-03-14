@@ -5,7 +5,7 @@
 /* Use this to make base styles */
 @layer components{
   .cont{
-    @apply overflow-hidden px-3 py-5 w-full text-center md:p-10 flex  mx-auto flex-wrap max-w-screen-lg justify-center
+    @apply overflow-hidden px-3 py-5 w-full text-center md:p-10 flex flex-col  mx-auto flex-wrap max-w-screen-lg justify-center 
   }
 }
 html{
