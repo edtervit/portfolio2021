@@ -15,7 +15,7 @@ function AboutSection({ data }) {
   return (
     <div className="overflow-hidden px-0 py-5 w-full text-center md:p-10 flex flex-col  mx-auto flex-wrap max-w-screen-lg">
       <h2 className="text-3xl">About Me</h2>
-      <div className="bg-gray p-4 md:p-10 my-10 text-white flex flex-wrap md:shadow-about w-full">
+      <div className="bg-gray p-4 md:p-10 my-10 text-white flex flex-wrap shadow-about md:w-full mx-auto w-11/12">
         <div className="w-full md:w-2/3 p-4 ">
           <h2 className="text-2xl">Bio</h2>
           <div className="flex  justify-center w-full my-2 items-center">
