@@ -117,6 +117,7 @@ function ProjectsSection({ data }) {
                                   href={link.link}
                                   target="_blank"
                                   className="m-2 "
+                                  key={index}
                                 >
                                   <i
                                     className={`${link.fontAwesomeClass} text-blue text-3xl`}
