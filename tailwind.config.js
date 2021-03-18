@@ -37,7 +37,7 @@ module.exports = {
         project: "-15px -15px 0px 0px rgba(255,255,255,0.25)",
       },
       rotate: {
-        360: "360deg",
+        "360d": "360deg",
       },
       maxWidth: {
         "1/4": "25%",
