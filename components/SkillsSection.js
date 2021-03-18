@@ -16,10 +16,13 @@ function SkillsSection({ data }) {
               <div className="border-dashed border rounded-md flex justify-center items-center flex-wrap w-full md:w-2/3 md:p-5 p-4">
                 {section.iconsAndText &&
                   section.iconsAndText.map((icon, index) => (
-                    <div key={index} className="flex-col w-1/2 md:w-1/3 my-5 ">
+                    <div
+                      key={index}
+                      className="flex-col w-1/2 md:w-1/3 my-5 transition duration-500 transform hover:rotate-360"
+                    >
                       <i
                         aria-hidden
-                        className={`${icon.fontAwesomeClassForIcon} text-4xl transition duration-500 transform hover:rotate-360`}
+                        className={`${icon.fontAwesomeClassForIcon} text-4xl `}
                       ></i>
                       <p className={`${icon.standout ? "font-bold" : ""}`}>
                         {icon.title}
