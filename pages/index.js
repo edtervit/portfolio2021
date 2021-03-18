@@ -74,5 +74,6 @@ export const getStaticProps = async () => {
       landingSectionData: landingSectionData,
       footerSectionData: footerSectionData,
     },
+    revalidate: 1,
   };
 };
