@@ -33,8 +33,11 @@ function LandingSection({ data }) {
       ref={myRef}
     >
       <div className="bg-white bg-opacity-75 py-4 w-11/12  md:w-auto md:px-20  space-y-3">
-        <h1 className="text-5xl">{d.mainTitle}</h1>
-        <h2 className=" text-2xl">{d.subTitle}</h2>
+        <h1 className="text-5xl">
+          {d.mainTitle}
+          <span className="text-2xl block">{d.subTitle}</span>
+        </h1>
+
         {d &&
           d.button.map((button, index) => (
             <div
