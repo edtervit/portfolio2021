@@ -26,10 +26,16 @@ export default function Home({
           rel="stylesheet"
         />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
-        <script
-          crossOrigin="anonymous"
-          src="https://kit.fontawesome.com/cdb215410e.js"
-        ></script>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+          crossorigin="anonymous"
+        />
+        <meta
+          name="description"
+          content="Ed Tervit. Full stack junior web developer based in Cambridge, United Kingdom. "
+        />
       </Head>
 
       <main>
@@ -74,5 +80,6 @@ export const getStaticProps = async () => {
       landingSectionData: landingSectionData,
       footerSectionData: footerSectionData,
     },
+    revalidate: 1,
   };
 };

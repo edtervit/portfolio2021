@@ -47,6 +47,6 @@ module.exports = {
       },
     },
   },
-  variants: ["responsive", "important"],
+  variants: ["responsive", "hover", "important"],
   plugins: [require("@neojp/tailwindcss-important-variant")],
 };
