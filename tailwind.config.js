@@ -37,7 +37,7 @@ module.exports = {
         bouncy: "bouncy 10s infinite linear",
       },
       width: {
-        51: "51%",
+        51: "calc(50% + 2px)",
       },
       boxShadow: {
         about: "-20px -20px 0px 0px rgba(0,0,0,1)",
