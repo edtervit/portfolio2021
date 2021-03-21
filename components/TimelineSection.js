@@ -1,8 +1,6 @@
 import React from "react";
 
 function TimelineSection({ data }) {
-  console.log("Timeline section data below:");
-  console.log(data);
   const d = data;
   return (
     <div className="bg-gradient-to-tr from-pink-light to-pink text-white">
