@@ -14,6 +14,10 @@ module.exports = {
           light: "#FFB82F",
         },
         gray: "#313638",
+        pink: {
+          DEFAULT: "#E66CBC",
+          light: "#FEA6E0",
+        },
       },
       fontFamily: {
         sans: ["Montserrat", "sans-serif"],
@@ -31,6 +35,9 @@ module.exports = {
       },
       animation: {
         bouncy: "bouncy 10s infinite linear",
+      },
+      width: {
+        51: "calc(50% + 2px)",
       },
       boxShadow: {
         about: "-20px -20px 0px 0px rgba(0,0,0,1)",

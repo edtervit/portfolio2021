@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 function ProjectsSection({ data }) {
-  console.log("Projects data:");
-  console.log(data);
-
   const [projects, setProjects] = useState(data);
   const [showModal, setShowModal] = useState(false);
 
@@ -142,17 +139,15 @@ function ProjectsSection({ data }) {
                           <p>{project.fullSummary}</p>
                         </div>
                         {project.screenshots &&
-                          project.screenshots.map((image) => (
-                            <>
-                              <div className="my-10!">
-                                <img
-                                  src={image.screenshot[0].url}
-                                  alt={image.screenshot[0].alternativeText}
-                                  className="shadow-lg"
-                                />
-                                <p className="pt-4">{image.screenshotText}</p>
-                              </div>
-                            </>
+                          project.screenshots.map((image, index) => (
+                            <div className="my-10!" key={index}>
+                              <img
+                                src={image.screenshot[0].url}
+                                alt={image.screenshot[0].alternativeText}
+                                className="shadow-lg"
+                              />
+                              <p className="pt-4">{image.screenshotText}</p>
+                            </div>
                           ))}
                       </div>
                     </div>

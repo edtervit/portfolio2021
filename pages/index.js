@@ -7,6 +7,7 @@ const AboutSection = dynamic(() => import("../components/AboutSection"));
 const ProjectsSection = dynamic(() => import("../components/ProjectsSection"));
 const SkillsSection = dynamic(() => import("../components/SkillsSection"));
 const FooterSection = dynamic(() => import("../components/FooterSection"));
+const TimelineSection = dynamic(() => import("../components/TimelineSection"));
 
 export default function Home({
   projectsData,
@@ -14,6 +15,7 @@ export default function Home({
   skillsSectionData,
   landingSectionData,
   footerSectionData,
+  timelineSectionData,
 }) {
   return (
     <div>
@@ -30,7 +32,7 @@ export default function Home({
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
           integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         />
         <meta
           name="description"
@@ -43,6 +45,7 @@ export default function Home({
         <AboutSection data={aboutSectionData} />
         <ProjectsSection data={projectsData} />
         <SkillsSection data={skillsSectionData} />
+        <TimelineSection data={timelineSectionData} />
       </main>
 
       <footer>
@@ -69,6 +72,9 @@ export const getStaticProps = async () => {
   const landingSection = await fetch(`${strapiUrl}/landing-section`);
   const landingSectionData = await landingSection.json();
 
+  const timelineSection = await fetch(`${strapiUrl}/timelinesection`);
+  const timelineSectionData = await timelineSection.json();
+
   const footerSection = await fetch(`${strapiUrl}/footer`);
   const footerSectionData = await footerSection.json();
 
@@ -79,6 +85,7 @@ export const getStaticProps = async () => {
       skillsSectionData: skillsSectionData,
       landingSectionData: landingSectionData,
       footerSectionData: footerSectionData,
+      timelineSectionData: timelineSectionData,
     },
     revalidate: 1,
   };
