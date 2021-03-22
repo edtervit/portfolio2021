@@ -2,9 +2,9 @@ import React from "react";
 
 function TimelineSection({ data }) {
   const d = data;
-  console.log(d);
+
   return (
-    <div className="bg-gradient-to-tr from-pink-light to-pink text-white pb-28">
+    <div className="bg-gradient-to-tr from-pink-light to-pink text-white pb-4 md:pb-28">
       <div className="cont max-w-screen-xl  space-y-4">
         <h2 className="text-3xl max-w-screen-md mx-auto">{d.sectionTitle}</h2>
         <h3 className="text-xl max-w-screen-md mx-auto">{d.sectionSubTitle}</h3>
@@ -57,11 +57,11 @@ function TimelineSection({ data }) {
               </div>
             ))}
         </div>
-        <a href={d.githubLink} className="my-4">
+        <a target="_blank" href={d.githubLink} className="my-4">
           <h4 className="text-xl max-w-screen-md mx-auto mb-4">
             {d.belowText}
           </h4>
-          <div className="bg-white p-4 rounded-lg shadow-md m-4">
+          <div className="bg-white p-1 md:p-4 rounded-lg shadow-md md:m-4">
             <img
               className="w-full my-3"
               src={d.imgLink}
