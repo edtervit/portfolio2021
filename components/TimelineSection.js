@@ -2,8 +2,9 @@ import React from "react";
 
 function TimelineSection({ data }) {
   const d = data;
+  console.log(d);
   return (
-    <div className="bg-gradient-to-tr from-pink-light to-pink text-white">
+    <div className="bg-gradient-to-tr from-pink-light to-pink text-white pb-28">
       <div className="cont max-w-screen-xl  space-y-4">
         <h2 className="text-3xl max-w-screen-md mx-auto">{d.sectionTitle}</h2>
         <h3 className="text-xl max-w-screen-md mx-auto">{d.sectionSubTitle}</h3>
@@ -56,16 +57,18 @@ function TimelineSection({ data }) {
               </div>
             ))}
         </div>
-
-        <h4 className="text-xl max-w-screen-md mx-auto">{d.belowText}</h4>
-        {d.link.map((link, index) => (
-          <a href={link.link} target="_blank" className="m-2 " key={index}>
-            <i className={`${link.fontAwesomeClass} text-white text-3xl`}></i>
-            <p className="" key={index}>
-              {link.linkText}
-            </p>
-          </a>
-        ))}
+        <a href={d.githubLink} className="my-4">
+          <h4 className="text-xl max-w-screen-md mx-auto mb-4">
+            {d.belowText}
+          </h4>
+          <div className="bg-white p-4 rounded-lg shadow-md m-4">
+            <img
+              className="w-full my-3"
+              src={d.imgLink}
+              alt="github commit graph of edtervit"
+            />
+          </div>
+        </a>
       </div>
     </div>
   );
