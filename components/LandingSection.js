@@ -47,6 +47,7 @@ function LandingSection({ data }) {
               <a
                 className=" uppercase border border-black py-1 px-3  hover:bg-black hover:text-yellow transition-all duration-400 "
                 href={button.ButtonLink}
+                target={button.newTab && "_blank"}
               >
                 {button.buttonText}
               </a>
