@@ -37,7 +37,7 @@ function AboutSection({ data }) {
             )}
             <p className="mx-2">Longer</p>
           </div>
-          <p className="  lg:h-36">{bio}</p>
+          <p className="  lg:h-40">{bio}</p>
           <h3 className="text-2xl mt-10 mb-3 md:my-3">Contact</h3>
           <div className="flex flex-wrap justify-center">
             {data && data.socialLink && (
