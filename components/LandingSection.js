@@ -4,8 +4,6 @@ import BIRDS from "vanta/dist/vanta.birds.min";
 function LandingSection({ data }) {
   const d = data;
 
-  console.log(d);
-
   const [vantaEffect, setVantaEffect] = useState(0);
   const myRef = useRef(null);
   useEffect(() => {
