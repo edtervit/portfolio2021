@@ -19,9 +19,7 @@ function SkillsSection({ data }) {
                     <div key={index} className="flex-col w-1/2 md:w-1/3 my-5  ">
                       <i
                         aria-hidden
-                        className={`${icon.fontAwesomeClassForIcon} ${
-                          icon.standout ? "font-bold" : ""
-                        } text-4xl  
+                        className={`text-4xl  
                         transition duration-500 transform hover:rotate-360`}
                       ></i>
                       <p className={`${icon.standout ? "font-bold" : ""}`}>
