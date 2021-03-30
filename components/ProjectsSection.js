@@ -106,7 +106,7 @@ function ProjectsSection({ data }) {
                         ></i>
                         <h3 className="text-3xl">{project.Title}</h3>
                         <div className="bg-blue w-3/4 h-0.5 mx-auto mt-1!"></div>
-                        <div className="w-full md:w-3/5 mx-auto">
+                        <div className="w-full ">
                           <div className="projectLinks flex flex-wrap justify-center ">
                             {project.projectLinks &&
                               project.projectLinks.map((link, index) => (
@@ -136,7 +136,9 @@ function ProjectsSection({ data }) {
                                 </p>
                               ))}
                           </div>
-                          <p>{project.fullSummary}</p>
+                          <p className="md:w-3/5 mx-auto">
+                            {project.fullSummary}
+                          </p>
                         </div>
                         {project.screenshots &&
                           project.screenshots.map((image, index) => (
