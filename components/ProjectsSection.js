@@ -26,7 +26,7 @@ function ProjectsSection({ data }) {
         <p className="my-4">Filter</p>
         <div className="space-x-4 ">
           <a
-            className="tag"
+            className="tag cursor-pointer"
             onClick={() =>
               setProjects(data.filter((project) => project.personal))
             }
@@ -34,14 +34,14 @@ function ProjectsSection({ data }) {
             personal
           </a>
           <a
-            className="tag"
+            className="tag cursor-pointer"
             onClick={() =>
               setProjects(data.filter((project) => !project.personal))
             }
           >
             work
           </a>
-          <a className="tag" onClick={() => setProjects(data)}>
+          <a className="tag cursor-pointer" onClick={() => setProjects(data)}>
             all
           </a>
         </div>
@@ -51,7 +51,7 @@ function ProjectsSection({ data }) {
             projects.map((project, index) => (
               <>
                 <div
-                  className=" w-full md:w-1/2 xl:w-1/3 my-8 text-black"
+                  className=" w-full md:w-1/2 xl:w-1/3 my-8 text-black flex "
                   key={index}
                   personal={project.personal.toString()}
                 >
@@ -65,12 +65,12 @@ function ProjectsSection({ data }) {
                     <div className="bg-blue w-3/4 h-0.5 mx-auto mt-1!"></div>
                     {project.Thumbnail && (
                       <img
-                        className="border-blue border-2 rounded-xl mb-4"
+                        className="border-blue border-2 rounded-xl mb-4 w-full"
                         src={project.Thumbnail.url}
                         alt=""
                       />
                     )}
-                    <p class-Name="">{project.shortSummary}</p>
+                    <p className="flex-grow">{project.shortSummary}</p>
                     <a
                       className="text-white bg-blue py-2 px-4 block  max-w-max mx-auto uppercase cursor-pointer"
                       onClick={() => setShowModal(index + 1)}
