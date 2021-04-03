@@ -1,6 +1,22 @@
 import React, { useState, useEffect } from "react";
 
 function ProjectsSection({ data }) {
+  //function to sort the projects by the order value in object.
+  function compare(a, b) {
+    const bandA = a.Order;
+    const bandB = b.Order;
+
+    let comparison = 0;
+    if (bandA > bandB) {
+      comparison = 1;
+    } else if (bandA < bandB) {
+      comparison = -1;
+    }
+    return comparison;
+  }
+
+  data.sort(compare);
+
   const [projects, setProjects] = useState(data);
   const [showModal, setShowModal] = useState(false);
 
