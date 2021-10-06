@@ -45,7 +45,7 @@ export default function Home({
         <AboutSection data={aboutSectionData} />
         <ProjectsSection data={projectsData} />
         <SkillsSection data={skillsSectionData} />
-        <TimelineSection data={timelineSectionData} />
+        {/* <TimelineSection data={timelineSectionData} /> */}
       </main>
 
       <footer>
