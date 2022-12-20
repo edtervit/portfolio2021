@@ -17,6 +17,8 @@ function ProjectsSection({ data }) {
 
   data.sort(compare);
 
+  console.log(data)
+
   const [projects, setProjects] = useState(data);
   const [showModal, setShowModal] = useState(false);
 
@@ -72,9 +74,8 @@ function ProjectsSection({ data }) {
                   personal={project.personal.toString()}
                 >
                   <div
-                    className={`bg-white w-10/12 mx-auto shadow-project rounded-lg p-4 space-y-4 flex flex-col cursor-pointer ${
-                      project.Featured && "border-2 border-orange "
-                    } `}
+                    className={`bg-white w-10/12 mx-auto shadow-project rounded-lg p-4 space-y-4 flex flex-col cursor-pointer ${project.Featured && "border-2 border-orange "
+                      } `}
                     onClick={() => setShowModal(index + 1)}
                   >
                     <h3 className="text-2xl ">{project.Title}</h3>
@@ -167,6 +168,11 @@ function ProjectsSection({ data }) {
                               <p className="pt-4">{image.screenshotText}</p>
                             </div>
                           ))}
+                          {project.video_url &&
+                            <div>
+                              <video src={project.video_url} controls={true} />
+                            </div>
+                            }
                       </div>
                     </div>
                   </>
