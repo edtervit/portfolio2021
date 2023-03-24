@@ -6,7 +6,7 @@
 @layer components{
   .cont{
     @apply overflow-hidden px-3 py-5 w-full text-center md:p-10 flex flex-col  mx-auto flex-wrap max-w-screen-lg justify-center 
-  },
+  }
   .tag{
     @apply border border-white max-w-max py-1 px-3  uppercase text-sm
   }

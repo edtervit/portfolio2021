@@ -1,6 +1,10 @@
 module.exports = {
-  purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
-  darkMode: false, // or 'media' or 'class'
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}"
+  ],
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
       colors: {
@@ -10,7 +14,7 @@ module.exports = {
         },
         yellow: "#fffaee",
         orange: {
-          DEFAULT: "#F66E41",
+          DEFAULT: "#FF4C29",
           light: "#FFB82F",
         },
         gray: "#313638",
@@ -54,6 +58,5 @@ module.exports = {
       },
     },
   },
-  variants: ["responsive", "hover", "important"],
   plugins: [require("@neojp/tailwindcss-important-variant")],
 };

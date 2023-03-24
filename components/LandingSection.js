@@ -1,41 +1,46 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
+import { DarkModeContext } from "./context/DarkModeContext";
 import BIRDS from "vanta/dist/vanta.birds.min";
 
 function LandingSection({ data }) {
+  const darkMode = useContext(DarkModeContext);
+  const [prevDarkMode, setPrevDarkMode] = useState(false);
+
   const d = data;
 
   const [vantaEffect, setVantaEffect] = useState(0);
   const myRef = useRef(null);
+  
   useEffect(() => {
-    if (!vantaEffect) {
+    if (!vantaEffect || darkMode !== prevDarkMode) {
       setVantaEffect(
         BIRDS({
           el: myRef.current,
           mouseControls: true,
           touchControls: true,
-          gyroControls: false,
           scale: 1.0,
           scaleMobile: 1.0,
-          backgroundColor: 0xfffaee,
-          color1: 0x4c4eff,
-          color2: 0xb567ff,
+          backgroundColor: darkMode ? 0x222220 : 0xfffaee,
+          color1: darkMode ? 0x980000 : 0x4c4eff,
+          color2: darkMode ? 0x5572 : 0xb567ff,
         })
       );
     }
+    setPrevDarkMode(darkMode)
     return () => {
       if (vantaEffect) vantaEffect.destroy();
     };
-  }, [vantaEffect]);
+  }, [vantaEffect, darkMode]);
 
   return (
     <div
-      className="mx-auto text-center h-screen bg-yellow flex flex-col justify-center items-center relative"
+      className="relative flex flex-col items-center justify-center h-screen mx-auto text-center bg-yellow dark:text-white"
       ref={myRef}
     >
-      <div className="bg-white bg-opacity-75 py-4 w-11/12  md:w-auto md:px-20  space-y-3">
+      <div className="w-11/12 py-4 space-y-3 bg-white bg-opacity-75 md:w-auto md:px-20 dark:bg-black dark:bg-opacity-50">
         <h1 className="text-5xl">
           {d.mainTitle}
-          <span className="text-2xl block">{d.subTitle}</span>
+          <span className="block text-2xl">{d.subTitle}</span>
         </h1>
 
         {d &&
@@ -45,19 +50,19 @@ function LandingSection({ data }) {
               className={`m-3 inline-block animate-bouncy relative animation-delay${index}`}
             >
               <a
-                className=" uppercase border border-black py-1 px-3  hover:bg-black hover:text-yellow transition-all duration-400 "
+                className="px-3 py-1 uppercase transition-all border border-black hover:bg-black dark:border-white hover:text-yellow duration-400 dark:hover:bg-white dark:hover:border-black dark:hover:text-black"
                 href={button.ButtonLink}
-                target={button.newTab && "_blank"}
+                target={button.newTab ? "_blank" : "_self"}
               >
                 {button.buttonText}
               </a>
             </div>
           ))}
       </div>
-      <p className="absolute bottom-10">scroll down</p>
+      <p className="absolute bottom-10 dark:text-white">scroll down</p>
       <i
         aria-hidden
-        className="fas fa-chevron-down text-2xl  text-black animate-bounce absolute bottom-0"
+        className="absolute bottom-0 text-2xl text-black dark:text-white fas fa-chevron-down animate-bounce"
       ></i>
     </div>
   );

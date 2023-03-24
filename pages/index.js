@@ -1,5 +1,7 @@
 import Head from "next/head";
 import dynamic from "next/dynamic";
+import { useState } from "react";
+import { DarkModeContext } from "../components/context/DarkModeContext";
 
 //import the sections after their data has loaded with get static props
 const LandingSection = dynamic(() => import("../components/LandingSection"));
@@ -17,23 +19,18 @@ export default function Home({
   footerSectionData,
   timelineSectionData,
 }) {
+  const [darkMode, setDarkMode] = useState(false);
+
+  const handleDarkModeToggle = () => {
+    setDarkMode(!darkMode);
+    darkMode ? document.documentElement.classList.remove("dark") : document.documentElement.classList.add("dark");
+  };
+
+
   return (
     <div>
       <Head>
         <title>Ed Tervit - Web Developer</title>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
-          rel="stylesheet"
-        />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-          integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-          crossOrigin="anonymous"
-        />
         <meta
           name="description"
           content="Ed Tervit. Full stack junior web developer based in Cambridge, United Kingdom. "
@@ -41,11 +38,16 @@ export default function Home({
       </Head>
 
       <main>
-        <LandingSection data={landingSectionData} />
-        <AboutSection data={aboutSectionData} />
-        <ProjectsSection data={projectsData} />
-        <SkillsSection data={skillsSectionData} />
-        {/* <TimelineSection data={timelineSectionData} /> */}
+          <div onClick={() => handleDarkModeToggle()} className={`fixed top-0 z-20 flex items-center justify-center w-12 h-12 text-center bg-black bg-opacity-50 rounded-b-sm cursor-pointer right-1 drop-shadow-md text-white dark:bg-white dark:shadow-white dark:bg-opacity-50 `} >
+            {darkMode ? <i aria-hidden="true" className="text-4xl text-black transition duration-500 transform fa-solid fa-moon hover:rotate-360"></i> : <i aria-hidden="true" className="text-3xl text-white transition duration-500 transform fa-solid fa-sun hover:rotate-360"></i>}
+        </div>
+        <DarkModeContext.Provider value={darkMode}>
+          <LandingSection data={landingSectionData} />
+          <AboutSection data={aboutSectionData} />  
+          <ProjectsSection data={projectsData} />
+          <SkillsSection data={skillsSectionData} />
+          {/* <TimelineSection data={timelineSectionData} /> */}
+        </DarkModeContext.Provider>
       </main>
 
       <footer>

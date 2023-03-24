@@ -7,13 +7,13 @@ function FooterSection({ data }) {
   const markdown = marked(data.footerText);
 
   return (
-    <div className="bg-yellow ">
+    <div className="bg-yellow dark:bg-gray dark:text-white">
       <div className="cont">
         <a href="#" className="text-xl ">
           Back to top
         </a>
         <div
-          className=" mt-5 mx-auto"
+          className="mx-auto mt-5 "
           dangerouslySetInnerHTML={
             data && data.footerText && { __html: markdown }
           }

@@ -17,10 +17,9 @@ function ProjectsSection({ data }) {
 
   data.sort(compare);
 
-  console.log(data)
-
   const [projects, setProjects] = useState(data);
   const [showModal, setShowModal] = useState(false);
+  const [filter, setFilter] = useState(null); //personal, work, all
 
   //disables page scrolling modal popup
   useEffect(() => {
@@ -37,29 +36,48 @@ function ProjectsSection({ data }) {
     }
   }, [showModal]);
 
+  const handleFilter = (filterSelection) => {
+    switch (filterSelection) {
+      case 'personal':
+        setFilter('personal')
+        setProjects(data.filter((project) => project.personal))
+        break;
+
+      case 'work':
+        setFilter('work')
+        setProjects(data.filter((project) => !project.personal))
+        break;
+        
+      case null:
+        setFilter(null)
+        setProjects(data)
+        break;
+
+       default:
+        break;
+    }
+
+  };
+
   return (
-    <div className="bg-gradient-to-tr from-blue to-blue-dark" id="projects">
-      <div className="cont max-w-screen-xl text-white">
+    <div className="bg-gradient-to-tr from-blue to-blue-dark dark:from-[#082032] dark:to-[#334756] dark:bg-gradient-to-tr" id="projects">
+      <div className="max-w-screen-xl text-white cont">
         <h2 className="text-3xl">Projects</h2>
         <p className="my-4">Filter</p>
         <div className="space-x-4 ">
           <a
-            className="tag cursor-pointer"
-            onClick={() =>
-              setProjects(data.filter((project) => project.personal))
-            }
+            className={`cursor-pointer tag ${filter == 'personal' && 'bg-orange'}`}
+            onClick={() => handleFilter('personal')}
           >
             personal
           </a>
           <a
-            className="tag cursor-pointer"
-            onClick={() =>
-              setProjects(data.filter((project) => !project.personal))
-            }
+            className={`cursor-pointer tag ${filter == 'work' && 'bg-orange'}`}
+            onClick={() => handleFilter('work')}
           >
             work
           </a>
-          <a className="tag cursor-pointer" onClick={() => setProjects(data)}>
+          <a className={`cursor-pointer tag ${filter == null && 'bg-orange'}`} onClick={() => handleFilter(null)}>
             all
           </a>
         </div>
@@ -67,38 +85,38 @@ function ProjectsSection({ data }) {
           {projects &&
             projects[0] &&
             projects.map((project, index) => (
-              <>
+              <React.Fragment key={index}>
                 <div
-                  className=" w-full md:w-1/2 my-8 text-black flex "
+                  className="flex w-full my-8 text-black md:w-1/2"
                   key={index}
                   personal={project.personal.toString()}
                 >
                   <div
-                    className={`bg-white w-10/12 mx-auto shadow-project rounded-lg p-4 space-y-4 flex flex-col cursor-pointer ${project.Featured && "border-2 border-orange "
+                    className={`bg-white w-10/12 mx-auto shadow-project rounded-lg p-4 space-y-4 flex flex-col cursor-pointer dark:bg-[#082032] dark:text-white ${project.Featured && "border-2 border-orange "
                       } `}
                     onClick={() => setShowModal(index + 1)}
                   >
                     <h3 className="text-2xl ">{project.Title}</h3>
-                    <div className="bg-blue w-3/4 h-0.5 mx-auto mt-1!"></div>
+                    <div className="bg-blue dark:bg-[#2C394B] w-3/4 h-0.5 mx-auto mt-1!"></div>
                     {project.Thumbnail && (
                       <img
-                        className="border-blue border-2 rounded-xl mb-4 w-full"
+                        className="w-full mb-4 border-2 border-blue rounded-xl"
                         src={project.Thumbnail.url}
                         alt=""
                       />
                     )}
                     <p className="flex-grow">{project.shortSummary}</p>
                     <a
-                      className="text-white bg-blue py-2 px-4 block  max-w-max mx-auto uppercase cursor-pointer"
+                      className="block px-4 py-2 mx-auto text-white uppercase cursor-pointer bg-blue dark:bg-[#2C394B] max-w-max"
                       onClick={() => setShowModal(index + 1)}
                     >
                       learn more
                     </a>
-                    <div className="tags flex flex-wrap justify-center ">
+                    <div className="flex flex-wrap justify-center tags ">
                       {project.technologiesTags &&
                         project.technologiesTags.map((tag, index) => (
                           <p
-                            className="tag text-xs m-1 border-blue"
+                            className="m-1 text-xs tag border-blue"
                             key={index}
                           >
                             {tag.aTag}
@@ -110,21 +128,21 @@ function ProjectsSection({ data }) {
                 {showModal && showModal === index + 1 && (
                   <>
                     <div
-                      className=" bg-blue bg-opacity-30 top-0 left-0 h-full w-full  fixed z-10 overflow-y-auto flex pt-4"
+                      className="fixed top-0 left-0 z-10 flex w-full h-full pt-4 overflow-y-auto bg-blue dark:bg-[#2C394B] bg-opacity-30"
                       onClick={() => setShowModal(false)}
                     >
                       <div
-                        className="bg-white block m-auto w-11/12 md:w-10/12 text-black p-5 space-y-4 relative max-w-screen-lg"
+                        className="relative block w-11/12 max-w-screen-lg p-5 m-auto space-y-4 text-black bg-white dark:bg-gray dark:text-white md:w-10/12"
                         onClick={(event) => event.stopPropagation()}
                       >
                         <i
-                          className="fas fa-times absolute right-4 md:right-8 cursor-pointer text-2xl text-blue"
+                          className="absolute text-2xl cursor-pointer fas fa-times right-4 md:right-8 text-blue"
                           onClick={() => setShowModal(false)}
                         ></i>
                         <h3 className="text-3xl">{project.Title}</h3>
-                        <div className="bg-blue w-3/4 h-0.5 mx-auto mt-1!"></div>
+                        <div className="bg-blue  w-3/4 h-0.5 mx-auto mt-1!"></div>
                         <div className="w-full ">
-                          <div className="projectLinks flex flex-wrap justify-center ">
+                          <div className="flex flex-wrap justify-center projectLinks ">
                             {project.projectLinks &&
                               project.projectLinks.map((link, index) => (
                                 <a
@@ -142,18 +160,18 @@ function ProjectsSection({ data }) {
                                 </a>
                               ))}
                           </div>
-                          <div className="tags flex flex-wrap justify-center my-4 ">
+                          <div className="flex flex-wrap justify-center my-4 tags ">
                             {project.technologiesTags &&
                               project.technologiesTags.map((tag, index) => (
                                 <p
-                                  className="tag text-xs m-1 border-blue"
+                                  className="m-1 text-xs tag border-blue"
                                   key={index}
                                 >
                                   {tag.aTag}
                                 </p>
                               ))}
                           </div>
-                          <p className="md:w-3/5 mx-auto">
+                          <p className="mx-auto md:w-3/5">
                             {project.fullSummary}
                           </p>
                         </div>
@@ -177,7 +195,7 @@ function ProjectsSection({ data }) {
                     </div>
                   </>
                 )}
-              </>
+              </React.Fragment>
             ))}
         </div>
       </div>
