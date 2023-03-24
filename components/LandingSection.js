@@ -20,6 +20,7 @@ function LandingSection({ data }) {
           touchControls: true,
           scale: 1.0,
           scaleMobile: 1.0,
+          speedLimit: 6.00,
           backgroundColor: darkMode ? 0x222220 : 0xfffaee,
           color1: darkMode ? 0x980000 : 0x4c4eff,
           color2: darkMode ? 0x5572 : 0xb567ff,
