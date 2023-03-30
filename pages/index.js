@@ -38,12 +38,12 @@ export default function Home({
       </Head>
 
       <main>
-          <div onClick={() => handleDarkModeToggle()} className={`fixed top-0 z-20 flex items-center justify-center w-12 h-12 text-center bg-black bg-opacity-50 rounded-b-sm cursor-pointer right-1 drop-shadow-md text-white dark:bg-white dark:shadow-white dark:bg-opacity-50 `} >
-            {darkMode ? <i aria-hidden="true" className="text-4xl text-black transition duration-500 transform fa-solid fa-moon hover:rotate-360"></i> : <i aria-hidden="true" className="text-3xl text-white transition duration-500 transform fa-solid fa-sun hover:rotate-360"></i>}
+        <div onClick={() => handleDarkModeToggle()} className={`fixed top-0 z-20 flex items-center justify-center w-12 h-12 text-center bg-black bg-opacity-50 rounded-b-sm cursor-pointer right-1 drop-shadow-md text-white dark:bg-white dark:shadow-white dark:bg-opacity-50 `} >
+          {darkMode ? <i aria-hidden="true" className="text-4xl text-black transition duration-500 transform fa-solid fa-moon hover:rotate-360"></i> : <i aria-hidden="true" className="text-3xl text-white transition duration-500 transform fa-solid fa-sun hover:rotate-360"></i>}
         </div>
         <DarkModeContext.Provider value={darkMode}>
           <LandingSection data={landingSectionData} />
-          <AboutSection data={aboutSectionData} />  
+          <AboutSection data={aboutSectionData} />
           <ProjectsSection data={projectsData} />
           <SkillsSection data={skillsSectionData} />
           {/* <TimelineSection data={timelineSectionData} /> */}

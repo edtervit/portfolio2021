@@ -1,51 +1,27 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
-import { DarkModeContext } from "./context/DarkModeContext";
-import BIRDS from "vanta/dist/vanta.birds.min";
+// import { Canvas } from '@react-three/fiber'
+// import { OrbitControls } from '@react-three/drei'
+import dynamic from "next/dynamic";
+
+const ThreeD = dynamic(() => import("./ThreeD"), { ssr: false });
 
 function LandingSection({ data }) {
-  const darkMode = useContext(DarkModeContext);
-  const [prevDarkMode, setPrevDarkMode] = useState(false);
-
-  const d = data;
-
-  const [vantaEffect, setVantaEffect] = useState(0);
-  const myRef = useRef(null);
-  
-  useEffect(() => {
-    if (!vantaEffect || darkMode !== prevDarkMode) {
-      setVantaEffect(
-        BIRDS({
-          el: myRef.current,
-          mouseControls: true,
-          touchControls: true,
-          scale: 1.0,
-          scaleMobile: 1.0,
-          speedLimit: 6.00,
-          backgroundColor: darkMode ? 0x222220 : 0xfffaee,
-          color1: darkMode ? 0x980000 : 0x4c4eff,
-          color2: darkMode ? 0x5572 : 0xb567ff,
-        })
-      );
-    }
-    setPrevDarkMode(darkMode)
-    return () => {
-      if (vantaEffect) vantaEffect.destroy();
-    };
-  }, [vantaEffect, darkMode]);
 
   return (
     <div
-      className="relative flex flex-col items-center justify-center h-screen mx-auto text-center bg-yellow dark:text-white"
-      ref={myRef}
+      className="relative flex flex-col items-center justify-center h-screen mx-auto text-center bg-red-700 dark:bg-black dark:text-white"
     >
-      <div className="w-11/12 py-4 space-y-3 bg-white bg-opacity-75 md:w-auto md:px-20 dark:bg-black dark:bg-opacity-50">
+      <div className="absolute top-0 z-0 w-full h-screen">
+        <ThreeD />
+      </div>
+      <div className="z-10 w-11/12 py-4 space-y-3 bg-white bg-opacity-75 md:w-auto md:px-20 dark:bg-opacity-10">
         <h1 className="text-5xl">
-          {d.mainTitle}
-          <span className="block text-2xl">{d.subTitle}</span>
+          {data.mainTitle}
+          <span className="block text-2xl">{data.subTitle}</span>
         </h1>
 
-        {d &&
-          d.button.map((button, index) => (
+        {data &&
+          data.button.map((button, index) => (
             <div
               key={index}
               className={`m-3 inline-block animate-bouncy relative animation-delay${index}`}
