@@ -8,7 +8,7 @@ extend({ UnrealBloomPass })
 import Bebas from '../public/fonts/Bebas.json'
 
 import { DarkModeContext } from "./context/DarkModeContext";
-import { useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
 
 import useWindowSize from '../hooks/useWindowSize';
 
@@ -27,6 +27,19 @@ function ThreeD() {
 
   const darkMode = useContext(DarkModeContext);
   const lightIntensity = darkMode ? 0.2 : 1;
+  const [glowStrengh, setGlowStrengh] = useState(2)
+
+  function oscillate(from, to, duration) {
+    return x => from + (to - from) * (0.5 - 0.5 * Math.cos((2 * Math.PI / duration) * x))
+  }
+
+  //loop to make glow stronger and then weaker
+  useEffect(() => {
+    setInterval(() => {
+      setGlowStrengh(oscillate(2, 5, 2000)(Date.now()))
+    }, 1)
+
+  }, [glowStrengh]);
 
   return (
     <div className='w-full h-screen'>
@@ -45,7 +58,7 @@ function ThreeD() {
         <Center>
           {darkMode && <Effects disableGamma>
             {/* threshhold has to be 1, so nothing at all gets bloom by default */}
-            <unrealBloomPass threshold={1} strength={2} radius={0.7} />
+            <unrealBloomPass threshold={1} strength={glowStrengh} radius={0.7} />
           </Effects>}
           {darkMode &&
             <Text3D
